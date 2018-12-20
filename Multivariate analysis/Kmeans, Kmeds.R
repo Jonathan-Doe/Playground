@@ -38,8 +38,6 @@ plot(cc_res$scores$xscores[,3:4],col=pal[km$cluster],cex=0.2, xlab = '3rd comp',
 
 #WSS
 fviz_nbclust(data, pam, method = "wss",k.max = 20)
-
-
 #Silhoutte
 fviz_nbclust(data, pam, method = "silhouette",k.max = 20)
 
@@ -68,8 +66,8 @@ data <- data.frame(read.csv("HTRU2/HTRU_2.csv",header = FALSE)) %>% drop_na()
 n <- 1000
 sampled_data <- sample_n(data, n, replace = FALSE)
 
-fviz_nbclust(sampled_data, kmeans, method = "wss",k.max = 10)
+fviz_nbclust(sampled_data, kmeans, method = "wss",k.max = 20)
 
 
 #Silhoutte0
-fviz_nbclust(data, kmaens, method = "silhouette",k.max = 20)
+fviz_nbclust(sampled_data, pam, method = "silhouette",k.max = 20)
